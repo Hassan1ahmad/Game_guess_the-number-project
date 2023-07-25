@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to right, #f2fcfe, #1c92d2);
+            color: #fff;
+        }
+        #gameContainer {
+            background-color: rgba(0,0,0,0.6);
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        #guessForm {
+            margin: 20px 0;
+        }
+        #guessInput {
+            margin-right: 10px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1c92d2;
+            color: #fff;
+            cursor: pointer;
+        }
+        #message, #score {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <h1>Guess the Number Game</h1>
+        <form id="guessForm">
+            <input id="guessInput" type="number" placeholder="Enter your number">
+            <button type="submit">Guess</button>
+        </form>
+        <div id="message"></div>
+        <div id="score"></div>
+        <div id="correctnumbwe"></div>
+    </div>
+
+    <script>
+        let rm = Math.round(Math.random() * 100);
+        let chances = [];
+        let guessForm = document.getElementById('guessForm');
+        let guessInput = document.getElementById('guessInput');
+
+        guessForm.onsubmit = function(e) {
+            e.preventDefault();
+            guessNumber();
+        }
+
+        function guessNumber() {
+            let guess = guessInput.value;
+            chances.push(guess);
+
+            if (guess < rm) {
+                document.getElementById('message').textContent = "Your guess is less than the actual number. Try a bigger number.";
+                guessInput.value = '';
+            } else if (guess > rm) {
+                document.getElementById('message').textContent = "Your guess is greater than the actual number. Try a smaller number.";
+                guessInput.value = '';
+            } else {
+                document.getElementById('message').textContent = rm+ ' is the correct number.';
+                document.getElementById('score').textContent = 'Your score is ' + (100 - chances.length);
+            }
+        }
+    </script>
+</body>
+</html>
