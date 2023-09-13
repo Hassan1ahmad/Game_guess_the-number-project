@@ -38,7 +38,7 @@ Play the game live [here](https://hassan1ahmad.github.io/Game_guess_the-number-p
 
 ## Contribute
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](link-to-your-issues-page).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Hassan1ahmad/Game_guess_the-number-project/issues).
 
 ## Support
 
